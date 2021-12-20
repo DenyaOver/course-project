@@ -6,6 +6,7 @@ import Dialogs from './components/Dialogs/Dialogs';
 import News from './components/News/News';
 import Music from './components/Music/Music'
 import {BrowserRouter, Route, Routes} from "react-router-dom"
+import DialogsContainer from './components/Dialogs/DialogsContainer';
 
 
 const App = (props) => {
@@ -17,15 +18,17 @@ const App = (props) => {
       <Nav/>
       <div className='app-wrapper-content'>
       <Routes>
-        <Route path = '/dialogs/*' element = {<Dialogs state={props.state.messagesPage} dispatch={props.dispatch}/>} />
-        <Route path = '/profile/*' element = {<Profile state={props.state.profilePage} dispatch={props.dispatch}  />} />
+        <Route path = '/dialogs/*' element = {<DialogsContainer store={props.store}/>} />
+        <Route path = '/profile/*' element = {<Profile store={props.store}  />} />
         <Route path = '/news/*' element = {<News />} />
         <Route path = '/music/*' element = {<Music />} />
       </Routes>
       </div>
     </div>
     </BrowserRouter>
+    
   );
 }
+
 
 export default App;
