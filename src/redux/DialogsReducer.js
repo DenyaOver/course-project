@@ -15,18 +15,18 @@ newMessagesBody: ""
 }
 
 export const dialogsReducer = (state = initialState, action) => {
-    switch(action.type) {
-        case SEND_MESSAGE:
-            let body = state.newMessagesBody;
-            state.newMessagesBody = '';
-            state.messagesData.push({id:4, title: body});
-            return state;
-        case UPDATE_MESSAGE:
-            state.newMessagesBody = action.payload;
-            return state;
-        default:
-            return state;
-    }
+  switch(action.type) {
+    case SEND_MESSAGE:
+      let body = state.newMessagesBody;
+      return( {...state,
+                   messagesData: [...state.messagesData, {id:4, title: body}],
+                   newMessagesBody: ''})
+    case UPDATE_MESSAGE:
+      return( {...state,
+                    newMessagesBody: action.payload})
+    default:
+      return state;
+  }
 }
 
 export const sendMessageCreater =() => {

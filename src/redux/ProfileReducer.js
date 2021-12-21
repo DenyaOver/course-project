@@ -10,21 +10,24 @@ newPostText: 'it-kamasutra'
 
 export const profileReducer = (state = initialState, action) => {
     switch (action.type) {
-        case ADD_POST:
-            let newPost = {
-                id: 5,
-                title: state.newPostText,
-                LikeCount: 0
-            };
-            
-            state.postData.push(newPost);
-            state.newPostText = ('')
-            return state;
+        case ADD_POST: 
+          let newPost = {
+            id: 5,
+            title: state.newPostText,
+            LikeCount: 0
+          };
+          return( {
+            ...state,
+            postData: [...state.postData, newPost],
+            newPostText: ''
+          })
         case UPDATE:
-            state.newPostText = action.newText;
-            return state;
+          return( {
+            ...state,
+            newPostText: action.newText})
         default:
-            return state;
+          return state;
+        
     }
 }
 

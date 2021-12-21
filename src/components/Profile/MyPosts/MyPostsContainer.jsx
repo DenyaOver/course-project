@@ -1,34 +1,26 @@
 import post from "./Myposts.module.css";
-import React from "react";
 import {
   addPostActionCreater,
   UpdateNewPostTextActionCreater,
 } from "../../../redux/ProfileReducer";
 import MyPosts from "./MyPosts";
-import StoreContext from "../../../StoreContext";
+import {connect} from 'react-redux'
 
-const MyPostsContainer = (props) => {
-  return (
-    <StoreContext.Consumer>
-      {(store) => {
-          let state = store.getState();
+let mapStateToProps = (state) => {
+  return {
+    postData: state.profilePage.postData,
+    newPostText: state.profilePage.newPostText
+  }
+}
 
-          let addpost = () => {
-            store.dispatch(addPostActionCreater());
-          };
-        
-          let onPostChange = (text) => {
-            store.dispatch(UpdateNewPostTextActionCreater(text));
-          };
-        return <MyPosts
-          updateNewPostText={onPostChange}
-          addPost={addpost}
-          postData={state.profilePage.postData}
-          newPostText={state.profilePage.newPostText}
-        />;
-      }}
-    </StoreContext.Consumer>
-  );
-};
+let mapDispatchToProps = (dispatch) => {
+  return {
+    updateNewPostText: (text)=> {dispatch(UpdateNewPostTextActionCreater(text));},
+    addPost: ()=> {dispatch(addPostActionCreater());}
+  }
+}
+
+const MyPostsContainer = connect(mapStateToProps, mapDispatchToProps) (MyPosts);
+
 
 export default MyPostsContainer;
