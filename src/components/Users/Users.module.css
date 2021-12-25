@@ -1,0 +1,12 @@
+img {
+    width: 100px;
+    border-radius: 50%;
+}
+.main {
+    display: flex;
+    flex-direction: row;
+    margin: 20px
+}
+.title{
+    margin-left: 20px;
+}
