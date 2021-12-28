@@ -5,7 +5,7 @@ const SET_USERS = 'SET-USERS'
 let initialState = {
   users: [
     // {id:1, photoUsers: 'https://yt3.ggpht.com/ytc/AKedOLRuW1jBQSK07y8tRlZsfUid2Hkz_Qpi6TnD5tQ7=s900-c-k-c0x00ffffff-no-rj',
-    //  followed: false, fullName: "Deiana", status: "Hi how are you", Location: {city: 'Minsk', country: 'Belarus'}},
+    //  followed: false, fullName: "Diana", status: "Hi how are you", Location: {city: 'Minsk', country: 'Belarus'}},
     // {id:3, photoUsers: 'https://yt3.ggpht.com/ytc/AKedOLRuW1jBQSK07y8tRlZsfUid2Hkz_Qpi6TnD5tQ7=s900-c-k-c0x00ffffff-no-rj',
     //  followed: false, fullName: "Dima", status: "Hi how are you", Location: {city: 'Minsk', country: 'Belarus'}},
     // {id:2, photoUsers: 'https://yt3.ggpht.com/ytc/AKedOLRuW1jBQSK07y8tRlZsfUid2Hkz_Qpi6TnD5tQ7=s900-c-k-c0x00ffffff-no-rj',
