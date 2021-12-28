@@ -10,3 +10,8 @@ img {
 .title{
     margin-left: 20px;
 }
+.selectedPage{
+    color: purple;
+    font-weight: bold;
+    font-size: 25px;
+}

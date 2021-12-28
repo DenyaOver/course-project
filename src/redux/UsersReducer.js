@@ -1,20 +1,14 @@
 const FOLLOW = 'FOLOW';
 const UNFOLLOW = 'UNFOLLOW';
 const SET_USERS = 'SET-USERS'
+const SET_CURRENT_PAGE = 'SET-CURRENT-PAGE'
+const SET_TOTAL_USERS_COUNT = 'SET-TOTAL-USERS-COUNT' 
 
 let initialState = {
-  users: [
-    // {id:1, photoUsers: 'https://yt3.ggpht.com/ytc/AKedOLRuW1jBQSK07y8tRlZsfUid2Hkz_Qpi6TnD5tQ7=s900-c-k-c0x00ffffff-no-rj',
-    //  followed: false, fullName: "Diana", status: "Hi how are you", Location: {city: 'Minsk', country: 'Belarus'}},
-    // {id:3, photoUsers: 'https://yt3.ggpht.com/ytc/AKedOLRuW1jBQSK07y8tRlZsfUid2Hkz_Qpi6TnD5tQ7=s900-c-k-c0x00ffffff-no-rj',
-    //  followed: false, fullName: "Dima", status: "Hi how are you", Location: {city: 'Minsk', country: 'Belarus'}},
-    // {id:2, photoUsers: 'https://yt3.ggpht.com/ytc/AKedOLRuW1jBQSK07y8tRlZsfUid2Hkz_Qpi6TnD5tQ7=s900-c-k-c0x00ffffff-no-rj',
-    //  followed: false, fullName: "Max", status: "Hi how are you", Location: {city: 'Minsk', country: 'Belarus'}},
-    // {id:4, photoUsers: 'https://yt3.ggpht.com/ytc/AKedOLRuW1jBQSK07y8tRlZsfUid2Hkz_Qpi6TnD5tQ7=s900-c-k-c0x00ffffff-no-rj',
-    //  followed: false, fullName: "Andrei", status: "Hi how are you", Location: {city: 'Minsk', country: 'Belarus'}},
-    // {id:5, photoUsers: 'https://yt3.ggpht.com/ytc/AKedOLRuW1jBQSK07y8tRlZsfUid2Hkz_Qpi6TnD5tQ7=s900-c-k-c0x00ffffff-no-rj',
-    //  followed: true, fullName: "Batu", status: "Hi how are you", Location: {city: 'Minsk', country: 'Belarus'}},
-    ]
+  users: [ ],
+  pageSize:54,
+  totalUsersCount: 0,
+  currentPage: 1
 }
 
 export const usersReducer = (state = initialState, action) => {
@@ -37,6 +31,10 @@ export const usersReducer = (state = initialState, action) => {
                 })})
         case SET_USERS:
             return {...state, users: [...action.users]}
+        case SET_CURRENT_PAGE:
+          return {...state, currentPage: action.currentPage}
+          case SET_TOTAL_USERS_COUNT:
+            return {...state, totalUsersCount: action.count}
         default:
           return state;       
     }
@@ -58,4 +56,16 @@ export const setUsersAC =(users) => {
     return{
       type: SET_USERS, users
     }
+}
+
+export const setCurrentPageAC =(currentPage) => {
+  return{
+    type: SET_CURRENT_PAGE, currentPage
+  }
+}
+
+export const setTotalUsersCountAC =(TotalCount) => {
+  return{
+    type: SET_TOTAL_USERS_COUNT, count: TotalCount
+  }
 }
